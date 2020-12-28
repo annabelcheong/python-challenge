@@ -15,6 +15,7 @@ with open(csvpath, newline="") as csv_file:
     profit_loss=0
     average_change=0
 
+    date_list1=[]
     test_list1=[]
     test_list2=[]
     
@@ -22,6 +23,7 @@ with open(csvpath, newline="") as csv_file:
         #print(row)
         line_count += 1
         #print(int(line_count))
+        date_list1.append(row[0])
         test_list1.append(row[1])
         test_list2.append(row[1])
 
@@ -106,15 +108,21 @@ for test_list1_i,test_list2_i in y:
 average_change=sum(difference)/len(difference)
 print(f"Average Change:${average_change:.2f}")
 
-newlist1 = map(int, test_list1)
-print(newlist1)
+newlist1 = list(map(int, test_list1))
+#print(newlist1)
 
 max_value=max(newlist1)
+min_value=min(newlist1)
 
-#max_index=newlist1.index(max_value)
+max_index=newlist1.index(max(newlist1))
+min_index=newlist1.index(min(newlist1))
+#print(max_index)
 
-print(f"Greatest increase in Profits is ${max_value}")
-print(test_list1.count(max_value))
+print(f"Greatest Increase in Profits: {date_list1[max_index]} (${max_value})")
+print(f"Greatest Decrease in Proifts: {date_list1[min_index]} (${min_value})")
+
+
+
 #outputlist = list(newlist1)
 #print(outputlist)
 #print(type(test_list1))
