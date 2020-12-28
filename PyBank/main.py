@@ -38,6 +38,7 @@ with open(csvpath, newline="") as csv_file:
 
     months=(int(line_count))
     
+    print("Financial Analysis \n-------------------------- ")
     print(f"Months: {months}")
     #print(f"Hello, this is the total profit_loss net at {profit_loss}. It should be 38382578.")
     print(f"Total: ${profit_loss}")
@@ -119,9 +120,18 @@ min_index=newlist1.index(min(newlist1))
 #print(max_index)
 
 print(f"Greatest Increase in Profits: {date_list1[max_index]} (${max_value})")
-print(f"Greatest Decrease in Proifts: {date_list1[min_index]} (${min_value})")
+print(f"Greatest Decrease in Profits: {date_list1[min_index]} (${min_value})")
 
+#
 
+report=open('PyBank_Summary.txt','w')
+report.write("Financial Analysis \n-------------------------- \n")
+report.write(f"Months: {months} \n")
+report.write(f"Total: ${profit_loss} \n")
+report.write(f"Average Change:${average_change:.2f} \n")
+report.write(f"Greatest Increase in Profits: {date_list1[max_index]} (${max_value}) \n")
+report.write(f"Greatest Decrease in Profits: {date_list1[min_index]} (${min_value})")
+report.close()
 
 #outputlist = list(newlist1)
 #print(outputlist)
