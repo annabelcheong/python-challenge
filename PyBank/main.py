@@ -1,6 +1,7 @@
 #Import os module to allow creation of file paths across operating systems and import csv module
 import os
 import csv
+
 #Create file path and join
 csvpath = os.path.join("Pybank_data.csv")
 with open(csvpath, newline="") as csv_file:
@@ -9,12 +10,20 @@ with open(csvpath, newline="") as csv_file:
 
  #Test on how many lines are in csv file with row data
     line_count=0
+    a=-1
+    i=0
     profit_loss=0
+    average_change=0
+
+    test_list1=[]
+    test_list2=[]
+    
     for row in csv_reader:
-       # print(row)
+        #print(row)
         line_count += 1
-       # TEST: print(int(line_count))
-        
+        #print(int(line_count))
+        test_list1.append(row[1])
+        test_list2.append(row[1])
 
         #set variable to record sum of column 2
         profit_loss=profit_loss + int(row[1])
@@ -23,27 +32,20 @@ with open(csvpath, newline="") as csv_file:
         # TEST: print(type(profit_loss))
         # TEST: print(type(row[1]))
 
+     
+
     months=(int(line_count))
     
     print(f"Months: {months}")
     #print(f"Hello, this is the total profit_loss net at {profit_loss}. It should be 38382578.")
-    print(f"Total: {profit_loss}")
-
-
-
-
-
-
+    print(f"Total: ${profit_loss}")
     
-    #print(profit_loss)
     
         # print(row[0])
         # print(row[1])
         # total=total+row[1]
         # print(total)
 
-
-    # print(len(row))
     
 # def stats(profit_loss_calcs):
 #     date = str(profit_loss_calc[0])
@@ -53,9 +55,6 @@ with open(csvpath, newline="") as csv_file:
 #     print(profit_loss)
 
     
-
-
-
 
 #Total number of months
  #   line_count=0
@@ -85,3 +84,38 @@ with open(csvpath, newline="") as csv_file:
  #   for row in csv_reader:
   #      if float(row[1])!=0:
    #         sum(f"profit {row[0]}")
+
+del test_list2[0]
+#print(test_list1)
+#print(test_list2)
+#print(test_list1[0])
+#print(test_list2[0])
+
+y=zip(test_list1,test_list2)
+#print(y)
+
+difference=[]
+
+for test_list1_i,test_list2_i in y:
+    difference.append(int(test_list2_i)-int(test_list1_i))
+#print(difference)
+
+#print(sum(difference))
+#print(len(difference))
+
+average_change=sum(difference)/len(difference)
+print(f"Average Change:${average_change:.2f}")
+
+newlist1 = map(int, test_list1)
+print(newlist1)
+
+max_value=max(newlist1)
+
+#max_index=newlist1.index(max_value)
+
+print(f"Greatest increase in Profits is ${max_value}")
+print(test_list1.count(max_value))
+#outputlist = list(newlist1)
+#print(outputlist)
+#print(type(test_list1))
+#print(type(test_list1[3]))
