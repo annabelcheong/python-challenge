@@ -15,6 +15,7 @@ with open(csvpath, newline="") as csv_file:
     profit_loss=0
     average_change=0
 
+#Store date into new lists, profit_loss data into 2 separate list. 2nd profit_loss data list is offset by 1 row to calculate difference later on.
     date_list1=[]
     test_list1=[]
     test_list2=[]
@@ -44,49 +45,6 @@ with open(csvpath, newline="") as csv_file:
     print(f"Total: ${profit_loss}")
     
     
-        # print(row[0])
-        # print(row[1])
-        # total=total+row[1]
-        # print(total)
-
-    
-# def stats(profit_loss_calcs):
-#     date = str(profit_loss_calc[0])
-#     profit_loss = float(profit_losss_calc[1])
-
-#     print(str(date)) 
-#     print(profit_loss)
-
-    
-
-#Total number of months
- #   line_count=0
- #   for row in csv_reader:
- #       print(len(row))
- #       line_count+=1
- #       print(int(line_count))
- #   months=int(line_count)
- #   print(f"Total Months: {months}")
-
-  #     for profit_loss in row:
-   #         total=0
-    #        total+= profit_loss
-     #   print(total)
-
-   # for row in csv_reader:
-   #     total_rows=len(row)
-   #     print(int(total_rows))
-
-  #  csv_header= next(csv_file)
-  #  print(f"Header: {csv_header}")
- 
-#for column in csv_reader
- #   float(column[1])!0
-#print(csv_reader)
-
- #   for row in csv_reader:
-  #      if float(row[1])!=0:
-   #         sum(f"profit {row[0]}")
 
 del test_list2[0]
 #print(test_list1)
@@ -122,8 +80,7 @@ min_index=newlist1.index(min(newlist1))
 print(f"Greatest Increase in Profits: {date_list1[max_index]} (${max_value})")
 print(f"Greatest Decrease in Profits: {date_list1[min_index]} (${min_value})")
 
-#
-
+#Create report summary
 report=open('PyBank_Summary.txt','w')
 report.write("Financial Analysis \n-------------------------- \n")
 report.write(f"Months: {months} \n")
