@@ -40,18 +40,55 @@ with open(csvpath, newline="") as csv_file:
     print("------------------------")
 
     from collections import Counter
-    candidate_counter=Counter(candidate)
-    print(candidate_counter)
+    # candidate_counter=Counter(candidate)
+    # print(candidate_counter)
     
-    #Find and Print the winning candidate
-    common_candidate=candidate_counter.most_common(1)
-    print(f"Winner:{common_candidate}")
-    
-    # for i in candidate_counter.elements():
-    # candidate_perc=candidate_counter/total_voters*100
-    # print(candidate_perc)
-    
+    # print(Counter(candidate_counter.keys()))
+    # print(Counter(candidate_counter.values()))
 
+    #Find and Print the winning candidate
+    # common_candidate=candidate_counter.most_common(1)
+    # print(f"Winner:{common_candidate}")
+
+    vote_count=Counter(candidate)
+    print(f"vote count: {vote_count}")
+    max_votes=max(vote_count.values())
+    print(f"max votes: {max_votes}")
+
+    #Search for candidate with max votes and store in list
+    First=[i for i in vote_count.keys() if vote_count[i]==max_votes]
+    print(sorted(First)[0])
+    print(vote_count.keys)
+
+    common_candidate=vote_count.most_common(1)
+    print(f"Most Common Method:{common_candidate}")
+    print(list(i for i in common_candidate.keys()))
+    print(common_candidate[0])
+   #Search for candidate with max votes and store in list
+    First=[i for i in vote_count.keys()]
+    #print(sorted(First)[0])
+    print(sorted(First))
+    print(vote_count.keys())
+
+
+
+
+
+
+    #Count up total votes and % for Khan 
+    khan_count=candidate.count("Khan")
+    print(f"Khan: {khan_count/total_voters*100:.2f}% ({khan_count})")
+    
+    #Count up total votes and % for Correy 
+    correy_count=candidate.count("Correy")
+    print(f"Correy: {correy_count/total_voters*100:.2f}% ({correy_count})")
+
+    #Count up total votes and % for Li
+    li_count=candidate.count("Li")
+    print(f"Li: {li_count/total_voters*100:.2f}% ({li_count})")
+
+    otooley_count=candidate.count("O'Tooley")
+    print(f"O'Tooley: {otooley_count/total_voters*100:.2f}% ({otooley_count})")
 
 
 
@@ -63,11 +100,5 @@ with open(csvpath, newline="") as csv_file:
     # print(results)
     # print(type(results))
 
-
-
-    #TEST:print(voter_id[0])
-    # if voter_id_element in voter_id:
-    #     if voter_id_element in voter
-    #     voter_duplicate=voter_id.count(voter_id_element)
 
    
