@@ -3,7 +3,7 @@ import os
 import csv
 
 #Create file path and join
-csvpath = os.path.join("Pybank_data.csv")
+csvpath = os.path.join("Resources/Pybank_data.csv")
 with open(csvpath, newline="") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
     header = next(csv_reader)
@@ -82,7 +82,7 @@ print(f"Greatest Decrease in Profits: {date_list1[min_index]} (${min_value})")
 
 #########CREATE REPORT SUMMARY AND EXPORT RESULT TO TEXT FILE##########
 
-report=open('PyBank_Summary.txt','w')
+report=open('analysis/PyBank_Summary.txt','w')
 report.write("Financial Analysis \n-------------------------- \n")
 report.write(f"Months: {months} \n")
 report.write(f"Total: ${profit_loss} \n")

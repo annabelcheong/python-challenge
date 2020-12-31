@@ -73,7 +73,7 @@ with open(csvpath, newline="") as csv_file:
 
    ####CREATE SUMMARY REPORT AND EXPORT RESULT TO TEXT FILE####
 
-report=open('PyPoll_Summary.txt','w')
+report=open('analysis/PyPoll_Summary.txt','w')
 report.write("Election Results\n\n------------------------\n")
 report.write(f"Total Votes: {len(voter_id)}\n")
 report.write("------------------------\n")
