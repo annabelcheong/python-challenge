@@ -36,26 +36,26 @@ with open(csvpath, newline="") as csv_file:
     #TEST: print(voter_id)
     total_voters=len(voter_id)
     print("\nElection Results\n\n------------------------")
-    print(f"Total Votes:{len(voter_id)}")
+    print(f"Total Votes: {len(voter_id)}")
     print("------------------------")
 
     ####CALCULATE AND PRINT THE % AND NUMBER OF VOTES FOR EACH CANDIDATE####
 
     #Count up total votes and % for Khan 
     khan_count=candidate.count("Khan")
-    print(f"Khan: {khan_count/total_voters*100:.2f}% ({khan_count})")
+    print(f"Khan: {khan_count/total_voters*100:.3f}% ({khan_count})")
     
     #Count up total votes and % for Correy 
     correy_count=candidate.count("Correy")
-    print(f"Correy: {correy_count/total_voters*100:.2f}% ({correy_count})")
+    print(f"Correy: {correy_count/total_voters*100:.3f}% ({correy_count})")
 
     #Count up total votes and % for Li
     li_count=candidate.count("Li")
-    print(f"Li: {li_count/total_voters*100:.2f}% ({li_count})")
+    print(f"Li: {li_count/total_voters*100:.3f}% ({li_count})")
 
     #Count up total votes and % for O'Tooley
     otooley_count=candidate.count("O'Tooley")
-    print(f"O'Tooley: {otooley_count/total_voters*100:.2f}% ({otooley_count})")
+    print(f"O'Tooley: {otooley_count/total_voters*100:.3f}% ({otooley_count})")
 
     ####FIND WINNER####
     from collections import Counter
@@ -75,12 +75,12 @@ with open(csvpath, newline="") as csv_file:
 
 report=open('PyPoll_Summary.txt','w')
 report.write("Election Results\n\n------------------------\n")
-report.write(f"Total Votes:{len(voter_id)}\n")
+report.write(f"Total Votes: {len(voter_id)}\n")
 report.write("------------------------\n")
-report.write(f"Khan: {khan_count/total_voters*100:.2f}% ({khan_count})\n")
-report.write(f"Correy: {correy_count/total_voters*100:.2f}% ({correy_count})\n")
-report.write(f"Li: {li_count/total_voters*100:.2f}% ({li_count}\n")
-report.write(f"O'Tooley: {otooley_count/total_voters*100:.2f}% ({otooley_count})\n")
+report.write(f"Khan: {khan_count/total_voters*100:.3f}% ({khan_count})\n")
+report.write(f"Correy: {correy_count/total_voters*100:.3f}% ({correy_count})\n")
+report.write(f"Li: {li_count/total_voters*100:.3f}% ({li_count}\n")
+report.write(f"O'Tooley: {otooley_count/total_voters*100:.3f}% ({otooley_count})\n")
 report.write("------------------------\n")
 report.write(f"Winner: {sorted(First)[0]}\n")
 report.write("------------------------")
